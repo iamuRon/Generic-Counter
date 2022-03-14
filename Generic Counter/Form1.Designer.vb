@@ -479,7 +479,7 @@ Partial Class genericCounter
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "genericCounter"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Ragan and Pali's Generic Counter"
+        Me.Text = "Ragan's Generic Counter"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.picGenericCounter, System.ComponentModel.ISupportInitialize).EndInit()
