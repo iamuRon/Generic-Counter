@@ -129,7 +129,9 @@ Public Class genericCounter
 
 
     End Sub
-
+    Function updateCustomSound() As String
+        customSound = My.Settings.customSound
+    End Function
     Function GetCounting() As String
         Return counting
     End Function
@@ -524,7 +526,7 @@ Public Class genericCounter
             YouDiedToolStripMenuItem.Checked = False
             OofToolStripMenuItem.Checked = False
             FlopToolStripMenuItem.Checked = False
-            CustomSoundToolStripMenuItem.Checked = True
+            updateCustomSound()
         Else
             My.Settings.nosound = True
             NoSoundToolStripMenuItem.Checked = True
