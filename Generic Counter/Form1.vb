@@ -22,6 +22,7 @@ Public Class genericCounter
     Dim new_stepAmount As Integer
     Dim stepAmount As Integer = My.Settings.stepAmount
     Dim customSound As String = My.Settings.customSound
+    Dim animalCrossingDarkChecked As Boolean = My.Settings.animalCrossingDarkChecked
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -36,6 +37,10 @@ Public Class genericCounter
             PictureBox2.Visible = True
             picAnimalCrossing.Visible = False
         ElseIf animalCrossingChecked = True Then
+            picAnimalCrossing.Visible = True
+            picGenericCounter.Visible = False
+            PictureBox2.Visible = False
+        ElseIf animalCrossingDarkChecked = True Then
             picAnimalCrossing.Visible = True
             picGenericCounter.Visible = False
             PictureBox2.Visible = False
@@ -504,7 +509,7 @@ Public Class genericCounter
 
         fd.Title = "Open File Dialog"
         fd.InitialDirectory = "C:\"
-        fd.Filter = "Text files (*.wav)|*.wav|Wav files (*.wav)|*.wav"
+        fd.Filter = "Wav files (*.wav)|*.wav|Wav files (*.wav)|*.wav"
         fd.FilterIndex = 2
         fd.RestoreDirectory = True
 

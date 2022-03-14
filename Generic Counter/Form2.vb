@@ -119,7 +119,7 @@
             My.Settings.Save()
         Else
             genericCounter.SetCounting("")
-            My.Settings.animalCrossingChecked = False
+            My.Settings.animalCrossingDarkChecked = False
             genericCounter.picGenericCounter.Visible = True
             genericCounter.PictureBox2.Visible = False
             genericCounter.picAnimalCrossing.Visible = False
