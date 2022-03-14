@@ -51,6 +51,9 @@ Partial Class genericCounter
         Me.YouDiedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OofToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FlopToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CustomSoundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BrowseToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HotkeysToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.TutorialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -269,7 +272,7 @@ Partial Class genericCounter
         '
         'CounterSettingsToolStripMenuItem
         '
-        Me.CounterSettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmIncrements, Me.tsmSound})
+        Me.CounterSettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmIncrements, Me.tsmSound, Me.HotkeysToolStripMenuItem})
         Me.CounterSettingsToolStripMenuItem.Name = "CounterSettingsToolStripMenuItem"
         Me.CounterSettingsToolStripMenuItem.Size = New System.Drawing.Size(107, 20)
         Me.CounterSettingsToolStripMenuItem.Text = "Counter Settings"
@@ -277,14 +280,14 @@ Partial Class genericCounter
         'tsmIncrements
         '
         Me.tsmIncrements.Name = "tsmIncrements"
-        Me.tsmIncrements.Size = New System.Drawing.Size(133, 22)
+        Me.tsmIncrements.Size = New System.Drawing.Size(180, 22)
         Me.tsmIncrements.Text = "Increments"
         '
         'tsmSound
         '
-        Me.tsmSound.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NoSoundToolStripMenuItem, Me.UwUToolStripMenuItem, Me.YouDiedToolStripMenuItem, Me.OofToolStripMenuItem, Me.FlopToolStripMenuItem})
+        Me.tsmSound.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NoSoundToolStripMenuItem, Me.UwUToolStripMenuItem, Me.YouDiedToolStripMenuItem, Me.OofToolStripMenuItem, Me.FlopToolStripMenuItem, Me.CustomSoundToolStripMenuItem})
         Me.tsmSound.Name = "tsmSound"
-        Me.tsmSound.Size = New System.Drawing.Size(133, 22)
+        Me.tsmSound.Size = New System.Drawing.Size(180, 22)
         Me.tsmSound.Text = "Sound"
         '
         'NoSoundToolStripMenuItem
@@ -292,32 +295,51 @@ Partial Class genericCounter
         Me.NoSoundToolStripMenuItem.Checked = True
         Me.NoSoundToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.NoSoundToolStripMenuItem.Name = "NoSoundToolStripMenuItem"
-        Me.NoSoundToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.NoSoundToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.NoSoundToolStripMenuItem.Text = "No Sound"
         '
         'UwUToolStripMenuItem
         '
         Me.UwUToolStripMenuItem.Name = "UwUToolStripMenuItem"
-        Me.UwUToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.UwUToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.UwUToolStripMenuItem.Text = "UwU"
         '
         'YouDiedToolStripMenuItem
         '
         Me.YouDiedToolStripMenuItem.Name = "YouDiedToolStripMenuItem"
-        Me.YouDiedToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.YouDiedToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.YouDiedToolStripMenuItem.Text = "You Died"
         '
         'OofToolStripMenuItem
         '
         Me.OofToolStripMenuItem.Name = "OofToolStripMenuItem"
-        Me.OofToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.OofToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.OofToolStripMenuItem.Text = "Oof"
         '
         'FlopToolStripMenuItem
         '
         Me.FlopToolStripMenuItem.Name = "FlopToolStripMenuItem"
-        Me.FlopToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.FlopToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.FlopToolStripMenuItem.Text = "Flop"
+        '
+        'CustomSoundToolStripMenuItem
+        '
+        Me.CustomSoundToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BrowseToolStripMenuItem1})
+        Me.CustomSoundToolStripMenuItem.Name = "CustomSoundToolStripMenuItem"
+        Me.CustomSoundToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.CustomSoundToolStripMenuItem.Text = "Custom Sound"
+        '
+        'BrowseToolStripMenuItem1
+        '
+        Me.BrowseToolStripMenuItem1.Name = "BrowseToolStripMenuItem1"
+        Me.BrowseToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
+        Me.BrowseToolStripMenuItem1.Text = "Browse"
+        '
+        'HotkeysToolStripMenuItem
+        '
+        Me.HotkeysToolStripMenuItem.Name = "HotkeysToolStripMenuItem"
+        Me.HotkeysToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HotkeysToolStripMenuItem.Text = "Hotkeys"
         '
         'LogsToolStripMenuItem
         '
@@ -526,4 +548,7 @@ Partial Class genericCounter
     Friend WithEvents txtTotalDeaths As Label
     Friend WithEvents TutorialToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents picAnimalCrossing As PictureBox
+    Friend WithEvents CustomSoundToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BrowseToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents HotkeysToolStripMenuItem As ToolStripMenuItem
 End Class

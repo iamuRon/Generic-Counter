@@ -13,16 +13,15 @@ Public Class genericCounter
 
     ReadOnly placeholders As Dictionary(Of String, ValueDelegate) = New Dictionary(Of String, ValueDelegate)()
 
-    ReadOnly audios = New List(Of Tuple(Of String, ToolStripMenuItem, IO.Stream))
-
     Dim counting As String = My.Settings.name
     Dim new_save As String = My.Settings.textFilePath
     Dim checked As Boolean = My.Settings.checked
     Dim deathChecked As Boolean = My.Settings.deathChecked
     Dim animalCrossingChecked As Boolean = My.Settings.animalCrossingChecked
-    Dim new_nosound, new_uwu, new_youdied, new_oof, new_flop As Boolean
+    Dim new_nosound, new_uwu, new_youdied, new_oof, new_flop, new_customSoundChecked As Boolean
     Dim new_stepAmount As Integer
     Dim stepAmount As Integer = My.Settings.stepAmount
+    Dim customSound As String = My.Settings.customSound
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -54,30 +53,42 @@ Public Class genericCounter
             YouDiedToolStripMenuItem.Checked = False
             OofToolStripMenuItem.Checked = False
             FlopToolStripMenuItem.Checked = False
+            CustomSoundToolStripMenuItem.Checked = False
         ElseIf new_uwu = True Then
             NoSoundToolStripMenuItem.Checked = False
             UwUToolStripMenuItem.Checked = True
             YouDiedToolStripMenuItem.Checked = False
             OofToolStripMenuItem.Checked = False
             FlopToolStripMenuItem.Checked = False
+            CustomSoundToolStripMenuItem.Checked = False
         ElseIf new_youdied = True Then
             NoSoundToolStripMenuItem.Checked = False
             UwUToolStripMenuItem.Checked = False
             YouDiedToolStripMenuItem.Checked = True
             OofToolStripMenuItem.Checked = False
             FlopToolStripMenuItem.Checked = False
+            CustomSoundToolStripMenuItem.Checked = False
         ElseIf new_flop = True Then
             NoSoundToolStripMenuItem.Checked = False
             UwUToolStripMenuItem.Checked = False
             YouDiedToolStripMenuItem.Checked = False
             OofToolStripMenuItem.Checked = False
             FlopToolStripMenuItem.Checked = True
+            CustomSoundToolStripMenuItem.Checked = False
         ElseIf new_oof = True Then
             NoSoundToolStripMenuItem.Checked = False
             UwUToolStripMenuItem.Checked = False
             YouDiedToolStripMenuItem.Checked = False
             OofToolStripMenuItem.Checked = True
             FlopToolStripMenuItem.Checked = False
+            CustomSoundToolStripMenuItem.Checked = False
+        ElseIf new_customSoundChecked = True Then
+            NoSoundToolStripMenuItem.Checked = False
+            UwUToolStripMenuItem.Checked = False
+            YouDiedToolStripMenuItem.Checked = False
+            OofToolStripMenuItem.Checked = False
+            FlopToolStripMenuItem.Checked = False
+            CustomSoundToolStripMenuItem.Checked = True
         End If
 
         If cbSave.Checked = False Then
@@ -113,6 +124,8 @@ Public Class genericCounter
         new_oof = My.Settings.oof
         new_flop = My.Settings.flop
         stepAmount = My.Settings.stepAmount
+        customSound = My.Settings.customSound
+        new_customSoundChecked = My.Settings.customSoundChecked
 
 
     End Sub
@@ -225,6 +238,8 @@ Public Class genericCounter
             My.Computer.Audio.Play(My.Resources.oof, AudioPlayMode.Background)
         ElseIf FlopToolStripMenuItem.Checked = True Then
             My.Computer.Audio.Play(My.Resources.flop, AudioPlayMode.Background)
+        ElseIf CustomSoundToolStripMenuItem.Checked = True Then
+            My.Computer.Audio.Play(customSound, AudioPlayMode.Background)
         End If
 
 
@@ -255,6 +270,8 @@ Public Class genericCounter
             My.Computer.Audio.Play(My.Resources.oof, AudioPlayMode.Background)
         ElseIf FlopToolStripMenuItem.Checked = True Then
             My.Computer.Audio.Play(My.Resources.flop, AudioPlayMode.Background)
+        ElseIf CustomSoundToolStripMenuItem.Checked = True Then
+            My.Computer.Audio.Play(customSound, AudioPlayMode.Background)
         End If
 
 
@@ -282,7 +299,7 @@ Public Class genericCounter
 
     Private WithEvents kbHook As New KeyboardHook
 
-    Private Sub kbHook_KeyDown(ByVal Key As System.Windows.Forms.Keys) Handles kbHook.KeyDown
+    Private Sub kbHook_KeyDown(ByVal Key As System.Windows.Forms.Keys) Handles kbHook.KeyUp
         Debug.WriteLine(Key.ToString)
         Select Case Key
             Case Keys.PageUp
@@ -386,6 +403,10 @@ Public Class genericCounter
     End Sub
 
     '===============================
+    '         KEYBINDINGS
+    '===============================
+
+    '===============================
     '       SOUND GOES HERE
     '===============================
 
@@ -393,12 +414,20 @@ Public Class genericCounter
         My.Settings.nosound = True
         My.Settings.uwu = False
         My.Settings.youdied = False
+        My.Settings.oof = False
+        My.Settings.flop = False
+        My.Settings.customSoundChecked = False
         UwUToolStripMenuItem.Checked = False
         NoSoundToolStripMenuItem.Checked = True
         YouDiedToolStripMenuItem.Checked = False
         OofToolStripMenuItem.Checked = False
         FlopToolStripMenuItem.Checked = False
+        CustomSoundToolStripMenuItem.Checked = False
         Form3.lbLogs.Items.Add("Sound set to NONE")
+    End Sub
+
+    Private Sub HotkeysToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HotkeysToolStripMenuItem.Click
+
     End Sub
 
     Private Sub UwUToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UwUToolStripMenuItem.Click
@@ -406,23 +435,32 @@ Public Class genericCounter
         My.Settings.nosound = False
         My.Settings.uwu = True
         My.Settings.youdied = False
+        My.Settings.oof = False
+        My.Settings.flop = False
+        My.Settings.customSoundChecked = False
         UwUToolStripMenuItem.Checked = True
         NoSoundToolStripMenuItem.Checked = False
         YouDiedToolStripMenuItem.Checked = False
         OofToolStripMenuItem.Checked = False
         FlopToolStripMenuItem.Checked = False
+        CustomSoundToolStripMenuItem.Checked = False
         Form3.lbLogs.Items.Add("Sound set to UwU")
     End Sub
+
     Private Sub YouDiedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles YouDiedToolStripMenuItem.Click
         My.Computer.Audio.Play(My.Resources.youdied, AudioPlayMode.Background)
         My.Settings.nosound = False
         My.Settings.uwu = False
         My.Settings.youdied = True
+        My.Settings.oof = False
+        My.Settings.flop = False
+        My.Settings.customSoundChecked = False
         UwUToolStripMenuItem.Checked = False
         NoSoundToolStripMenuItem.Checked = False
         YouDiedToolStripMenuItem.Checked = True
         OofToolStripMenuItem.Checked = False
         FlopToolStripMenuItem.Checked = False
+        CustomSoundToolStripMenuItem.Checked = False
         Form3.lbLogs.Items.Add("Sound set to You Died")
     End Sub
     Private Sub OofToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OofToolStripMenuItem.Click
@@ -432,11 +470,13 @@ Public Class genericCounter
         My.Settings.youdied = False
         My.Settings.oof = True
         My.Settings.flop = False
+        My.Settings.customSoundChecked = False
         UwUToolStripMenuItem.Checked = False
         NoSoundToolStripMenuItem.Checked = False
         YouDiedToolStripMenuItem.Checked = False
         OofToolStripMenuItem.Checked = True
         FlopToolStripMenuItem.Checked = False
+        CustomSoundToolStripMenuItem.Checked = False
         Form3.lbLogs.Items.Add("Sound set to Oof")
     End Sub
     Private Sub FlopToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FlopToolStripMenuItem.Click
@@ -446,12 +486,62 @@ Public Class genericCounter
         My.Settings.youdied = False
         My.Settings.oof = False
         My.Settings.flop = True
+        My.Settings.customSoundChecked = False
         UwUToolStripMenuItem.Checked = False
         NoSoundToolStripMenuItem.Checked = False
         YouDiedToolStripMenuItem.Checked = False
         OofToolStripMenuItem.Checked = False
         FlopToolStripMenuItem.Checked = True
+        CustomSoundToolStripMenuItem.Checked = False
         Form3.lbLogs.Items.Add("Sound set to Flop")
+    End Sub
+
+    Private Sub BrowseToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles BrowseToolStripMenuItem1.Click
+        Dim fd As OpenFileDialog = New OpenFileDialog()
+        Dim strFileName As String
+
+        fd.Title = "Open File Dialog"
+        fd.InitialDirectory = "C:\"
+        fd.Filter = "Text files (*.wav)|*.wav|Wav files (*.wav)|*.wav"
+        fd.FilterIndex = 2
+        fd.RestoreDirectory = True
+
+        If fd.ShowDialog() = DialogResult.OK Then
+            strFileName = fd.FileName
+            My.Computer.Audio.Play(strFileName, AudioPlayMode.Background)
+            My.Settings.customSound = strFileName
+            My.Settings.Save()
+            Form3.lbLogs.Items.Add("Sound set to " & strFileName)
+            CustomSoundToolStripMenuItem.Checked = True
+            My.Settings.nosound = False
+            My.Settings.uwu = False
+            My.Settings.youdied = False
+            My.Settings.oof = False
+            My.Settings.flop = False
+            My.Settings.customSoundChecked = True
+            UwUToolStripMenuItem.Checked = False
+            NoSoundToolStripMenuItem.Checked = False
+            YouDiedToolStripMenuItem.Checked = False
+            OofToolStripMenuItem.Checked = False
+            FlopToolStripMenuItem.Checked = False
+            CustomSoundToolStripMenuItem.Checked = True
+        Else
+            My.Settings.nosound = True
+            NoSoundToolStripMenuItem.Checked = True
+            UwUToolStripMenuItem.Checked = False
+            YouDiedToolStripMenuItem.Checked = False
+            OofToolStripMenuItem.Checked = False
+            FlopToolStripMenuItem.Checked = False
+            CustomSoundToolStripMenuItem.Checked = False
+            My.Settings.nosound = True
+            My.Settings.uwu = False
+            My.Settings.youdied = False
+            My.Settings.oof = False
+            My.Settings.flop = False
+            My.Settings.customSoundChecked = False
+            Form3.lbLogs.Items.Add("Failed to load custom sound")
+        End If
+
     End Sub
 
 End Class
