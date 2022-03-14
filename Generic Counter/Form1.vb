@@ -235,17 +235,17 @@ Public Class genericCounter
         file.Close()
         Form3.lbLogs.Items.Add("Removed " & stepAmount & " from total")
         txtTotalDeaths.Text = Convert.ToInt32(ctx) - stepAmount
-        If NoSoundToolStripMenuItem.Checked = True Then
+        If new_nosound = True Then
             Return
-        ElseIf UwUToolStripMenuItem.Checked = True Then
+        ElseIf new_uwu = True Then
             My.Computer.Audio.Play(My.Resources.uwu, AudioPlayMode.Background)
-        ElseIf YouDiedToolStripMenuItem.Checked = True Then
+        ElseIf new_youdied = True Then
             My.Computer.Audio.Play(My.Resources.youdied, AudioPlayMode.Background)
-        ElseIf OofToolStripMenuItem.Checked = True Then
+        ElseIf new_oof = True Then
             My.Computer.Audio.Play(My.Resources.oof, AudioPlayMode.Background)
-        ElseIf FlopToolStripMenuItem.Checked = True Then
+        ElseIf new_flop = True Then
             My.Computer.Audio.Play(My.Resources.flop, AudioPlayMode.Background)
-        ElseIf CustomSoundToolStripMenuItem.Checked = True Then
+        ElseIf new_customSoundChecked = True Then
             My.Computer.Audio.Play(customSound, AudioPlayMode.Background)
         End If
 
@@ -307,7 +307,6 @@ Public Class genericCounter
     Private WithEvents kbHook As New KeyboardHook
 
     Private Sub kbHook_KeyDown(ByVal Key As System.Windows.Forms.Keys) Handles kbHook.KeyUp
-        Debug.WriteLine(Key.ToString)
         Select Case Key
             Case Keys.PageUp
                 btnAddDeath.PerformClick()
@@ -396,7 +395,7 @@ Public Class genericCounter
     End Sub
 
     Private Sub DiscordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DiscordToolStripMenuItem.Click
-        System.Diagnostics.Process.Start("https://discord.gg/cmbVRDUyt2")
+        System.Diagnostics.Process.Start("https://discord.gg/CXSAQ3fZNt")
     End Sub
 
     Private Sub TutorialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TutorialToolStripMenuItem.Click
@@ -519,13 +518,13 @@ Public Class genericCounter
             My.Settings.customSound = strFileName
             My.Settings.Save()
             Form3.lbLogs.Items.Add("Sound set to " & strFileName)
-            CustomSoundToolStripMenuItem.Checked = True
             My.Settings.nosound = False
             My.Settings.uwu = False
             My.Settings.youdied = False
             My.Settings.oof = False
             My.Settings.flop = False
             My.Settings.customSoundChecked = True
+            CustomSoundToolStripMenuItem.Checked = True
             UwUToolStripMenuItem.Checked = False
             NoSoundToolStripMenuItem.Checked = False
             YouDiedToolStripMenuItem.Checked = False
@@ -540,7 +539,6 @@ Public Class genericCounter
             OofToolStripMenuItem.Checked = False
             FlopToolStripMenuItem.Checked = False
             CustomSoundToolStripMenuItem.Checked = False
-            My.Settings.nosound = True
             My.Settings.uwu = False
             My.Settings.youdied = False
             My.Settings.oof = False
@@ -548,6 +546,7 @@ Public Class genericCounter
             My.Settings.customSoundChecked = False
             Form3.lbLogs.Items.Add("Failed to load custom sound")
         End If
+
 
     End Sub
 

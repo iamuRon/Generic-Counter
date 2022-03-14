@@ -295,44 +295,44 @@ Partial Class genericCounter
         Me.NoSoundToolStripMenuItem.Checked = True
         Me.NoSoundToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.NoSoundToolStripMenuItem.Name = "NoSoundToolStripMenuItem"
-        Me.NoSoundToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.NoSoundToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NoSoundToolStripMenuItem.Text = "No Sound"
         '
         'UwUToolStripMenuItem
         '
         Me.UwUToolStripMenuItem.Name = "UwUToolStripMenuItem"
-        Me.UwUToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.UwUToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.UwUToolStripMenuItem.Text = "UwU"
         '
         'YouDiedToolStripMenuItem
         '
         Me.YouDiedToolStripMenuItem.Name = "YouDiedToolStripMenuItem"
-        Me.YouDiedToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.YouDiedToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.YouDiedToolStripMenuItem.Text = "You Died"
         '
         'OofToolStripMenuItem
         '
         Me.OofToolStripMenuItem.Name = "OofToolStripMenuItem"
-        Me.OofToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.OofToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OofToolStripMenuItem.Text = "Oof"
         '
         'FlopToolStripMenuItem
         '
         Me.FlopToolStripMenuItem.Name = "FlopToolStripMenuItem"
-        Me.FlopToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.FlopToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.FlopToolStripMenuItem.Text = "Flop"
         '
         'CustomSoundToolStripMenuItem
         '
         Me.CustomSoundToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BrowseToolStripMenuItem1})
         Me.CustomSoundToolStripMenuItem.Name = "CustomSoundToolStripMenuItem"
-        Me.CustomSoundToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.CustomSoundToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CustomSoundToolStripMenuItem.Text = "Custom Sound"
         '
         'BrowseToolStripMenuItem1
         '
         Me.BrowseToolStripMenuItem1.Name = "BrowseToolStripMenuItem1"
-        Me.BrowseToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
+        Me.BrowseToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.BrowseToolStripMenuItem1.Text = "Browse"
         '
         'HotkeysToolStripMenuItem
