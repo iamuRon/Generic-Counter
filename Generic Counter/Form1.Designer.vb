@@ -66,10 +66,12 @@ Partial Class genericCounter
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.txtTotalDeaths = New System.Windows.Forms.Label()
         Me.picAnimalCrossing = New System.Windows.Forms.PictureBox()
+        Me.picCustom = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.picGenericCounter, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picAnimalCrossing, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picCustom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblName
@@ -280,14 +282,14 @@ Partial Class genericCounter
         'tsmIncrements
         '
         Me.tsmIncrements.Name = "tsmIncrements"
-        Me.tsmIncrements.Size = New System.Drawing.Size(180, 22)
+        Me.tsmIncrements.Size = New System.Drawing.Size(133, 22)
         Me.tsmIncrements.Text = "Increments"
         '
         'tsmSound
         '
         Me.tsmSound.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NoSoundToolStripMenuItem, Me.UwUToolStripMenuItem, Me.YouDiedToolStripMenuItem, Me.OofToolStripMenuItem, Me.FlopToolStripMenuItem, Me.CustomSoundToolStripMenuItem})
         Me.tsmSound.Name = "tsmSound"
-        Me.tsmSound.Size = New System.Drawing.Size(180, 22)
+        Me.tsmSound.Size = New System.Drawing.Size(133, 22)
         Me.tsmSound.Text = "Sound"
         '
         'NoSoundToolStripMenuItem
@@ -295,50 +297,50 @@ Partial Class genericCounter
         Me.NoSoundToolStripMenuItem.Checked = True
         Me.NoSoundToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.NoSoundToolStripMenuItem.Name = "NoSoundToolStripMenuItem"
-        Me.NoSoundToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NoSoundToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.NoSoundToolStripMenuItem.Text = "No Sound"
         '
         'UwUToolStripMenuItem
         '
         Me.UwUToolStripMenuItem.Name = "UwUToolStripMenuItem"
-        Me.UwUToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UwUToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.UwUToolStripMenuItem.Text = "UwU"
         '
         'YouDiedToolStripMenuItem
         '
         Me.YouDiedToolStripMenuItem.Name = "YouDiedToolStripMenuItem"
-        Me.YouDiedToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.YouDiedToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.YouDiedToolStripMenuItem.Text = "You Died"
         '
         'OofToolStripMenuItem
         '
         Me.OofToolStripMenuItem.Name = "OofToolStripMenuItem"
-        Me.OofToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OofToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.OofToolStripMenuItem.Text = "Oof"
         '
         'FlopToolStripMenuItem
         '
         Me.FlopToolStripMenuItem.Name = "FlopToolStripMenuItem"
-        Me.FlopToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FlopToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.FlopToolStripMenuItem.Text = "Flop"
         '
         'CustomSoundToolStripMenuItem
         '
         Me.CustomSoundToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BrowseToolStripMenuItem1})
         Me.CustomSoundToolStripMenuItem.Name = "CustomSoundToolStripMenuItem"
-        Me.CustomSoundToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CustomSoundToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.CustomSoundToolStripMenuItem.Text = "Custom Sound"
         '
         'BrowseToolStripMenuItem1
         '
         Me.BrowseToolStripMenuItem1.Name = "BrowseToolStripMenuItem1"
-        Me.BrowseToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.BrowseToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
         Me.BrowseToolStripMenuItem1.Text = "Browse"
         '
         'HotkeysToolStripMenuItem
         '
         Me.HotkeysToolStripMenuItem.Name = "HotkeysToolStripMenuItem"
-        Me.HotkeysToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HotkeysToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.HotkeysToolStripMenuItem.Text = "Hotkeys"
         '
         'LogsToolStripMenuItem
@@ -466,6 +468,18 @@ Partial Class genericCounter
         Me.picAnimalCrossing.TabIndex = 26
         Me.picAnimalCrossing.TabStop = False
         '
+        'picCustom
+        '
+        Me.picCustom.BackColor = Global.Generic_Counter.My.MySettings.Default.backcolor
+        Me.picCustom.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.Generic_Counter.My.MySettings.Default, "backcolor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.picCustom.Image = CType(resources.GetObject("picCustom.Image"), System.Drawing.Image)
+        Me.picCustom.Location = New System.Drawing.Point(1, 346)
+        Me.picCustom.Name = "picCustom"
+        Me.picCustom.Size = New System.Drawing.Size(227, 140)
+        Me.picCustom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picCustom.TabIndex = 27
+        Me.picCustom.TabStop = False
+        '
         'genericCounter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -493,6 +507,7 @@ Partial Class genericCounter
         Me.Controls.Add(Me.picGenericCounter)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.picAnimalCrossing)
+        Me.Controls.Add(Me.picCustom)
         Me.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.Generic_Counter.My.MySettings.Default, "backcolor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
@@ -507,6 +522,7 @@ Partial Class genericCounter
         CType(Me.picGenericCounter, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picAnimalCrossing, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picCustom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -551,4 +567,5 @@ Partial Class genericCounter
     Friend WithEvents CustomSoundToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BrowseToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents HotkeysToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents picCustom As PictureBox
 End Class

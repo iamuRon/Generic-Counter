@@ -54,6 +54,8 @@
             genericCounter.picGenericCounter.Visible = False
             genericCounter.PictureBox2.Visible = True
             genericCounter.picAnimalCrossing.Visible = False
+            genericCounter.picCustom.Visible = False
+            My.Settings.customImageFilePath = ""
             genericCounter.SetCounting("Deaths")
             My.Settings.Save()
         Else
@@ -62,6 +64,8 @@
             genericCounter.picGenericCounter.Visible = True
             genericCounter.PictureBox2.Visible = False
             genericCounter.picAnimalCrossing.Visible = False
+            genericCounter.picCustom.Visible = False
+            My.Settings.customImageFilePath = ""
             My.Settings.backcolor = Color.FromArgb(69, 69, 69)
             My.Settings.forecolor = Color.FromArgb(192, 255, 255)
             genericCounter.SetCounting("")
@@ -88,6 +92,8 @@
             genericCounter.picGenericCounter.Visible = False
             genericCounter.PictureBox2.Visible = False
             genericCounter.picAnimalCrossing.Visible = True
+            genericCounter.picCustom.Visible = False
+            My.Settings.customImageFilePath = ""
             genericCounter.SetCounting("Islands")
             My.Settings.Save()
         Else
@@ -96,12 +102,35 @@
             genericCounter.picGenericCounter.Visible = True
             genericCounter.PictureBox2.Visible = False
             genericCounter.picAnimalCrossing.Visible = False
+            genericCounter.picCustom.Visible = False
+            My.Settings.customImageFilePath = ""
             My.Settings.backcolor = Color.FromArgb(69, 69, 69)
             My.Settings.forecolor = Color.FromArgb(192, 255, 255)
             genericCounter.SetCounting("")
             My.Settings.Save()
         End If
     End Sub
+
+    Private Sub btnCustomImage_Click(sender As Object, e As EventArgs) Handles btnCustomImage.Click
+        Dim fd As New OpenFileDialog With {
+            .Title = "Open File Dialog",
+            .InitialDirectory = "C:\",
+            .Filter = "Image files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png",
+            .FilterIndex = 1,
+            .RestoreDirectory = True
+        }
+
+        If fd.ShowDialog() = DialogResult.OK Then
+            My.Settings.customImageFilePath = fd.FileName
+
+            genericCounter.picCustom.Image = Image.FromFile(fd.FileName)
+            genericCounter.picGenericCounter.Visible = False
+            genericCounter.PictureBox2.Visible = False
+            genericCounter.picAnimalCrossing.Visible = False
+            genericCounter.picCustom.Visible = True
+        End If
+    End Sub
+
     Private Sub cbAnimalCrossingDark_CheckedChanged(sender As Object, e As EventArgs) Handles cbAnimalCrossingDark.CheckedChanged
         If cbAnimalCrossingDark.Checked = True Then
             cbSwitchDeathMode.Checked = False
@@ -115,6 +144,8 @@
             genericCounter.picGenericCounter.Visible = False
             genericCounter.PictureBox2.Visible = False
             genericCounter.picAnimalCrossing.Visible = True
+            genericCounter.picCustom.Visible = False
+            My.Settings.customImageFilePath = ""
             genericCounter.SetCounting("Islands")
             My.Settings.Save()
         Else
@@ -123,6 +154,8 @@
             genericCounter.picGenericCounter.Visible = True
             genericCounter.PictureBox2.Visible = False
             genericCounter.picAnimalCrossing.Visible = False
+            genericCounter.picCustom.Visible = False
+            My.Settings.customImageFilePath = ""
             My.Settings.backcolor = Color.FromArgb(69, 69, 69)
             My.Settings.forecolor = Color.FromArgb(192, 255, 255)
             genericCounter.SetCounting("")

@@ -32,22 +32,30 @@ Public Class genericCounter
         ttAdd.SetToolTip(btnAddDeath, "Shortcut: [PgUp]")
         ttRemove.SetToolTip(btnRemoveDeath, "Shortcut: [PgDn]")
         ttSave.SetToolTip(cbSave, "UNCHECKING THIS WILL DISABLE ALL ACTIVE FEATURES!")
-        If deathChecked = True Then
-            picGenericCounter.Visible = False
-            PictureBox2.Visible = True
-            picAnimalCrossing.Visible = False
-        ElseIf animalCrossingChecked = True Then
-            picAnimalCrossing.Visible = True
-            picGenericCounter.Visible = False
-            PictureBox2.Visible = False
-        ElseIf animalCrossingDarkChecked = True Then
-            picAnimalCrossing.Visible = True
-            picGenericCounter.Visible = False
-            PictureBox2.Visible = False
+        If (My.Settings.customImageFilePath = "") Then
+            If deathChecked = True Then
+                picGenericCounter.Visible = False
+                PictureBox2.Visible = True
+                picAnimalCrossing.Visible = False
+            ElseIf animalCrossingChecked = True Then
+                picAnimalCrossing.Visible = True
+                picGenericCounter.Visible = False
+                PictureBox2.Visible = False
+            ElseIf animalCrossingDarkChecked = True Then
+                picAnimalCrossing.Visible = True
+                picGenericCounter.Visible = False
+                PictureBox2.Visible = False
+            Else
+                picGenericCounter.Visible = True
+                PictureBox2.Visible = False
+                picAnimalCrossing.Visible = False
+            End If
         Else
-            picGenericCounter.Visible = True
+            picGenericCounter.Visible = False
             PictureBox2.Visible = False
             picAnimalCrossing.Visible = False
+            picCustom.Image = Image.FromFile(My.Settings.customImageFilePath)
+            picCustom.Visible = True
         End If
 
         UpdateCounting()

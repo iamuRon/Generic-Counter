@@ -51,7 +51,7 @@
     <ApplicationIcon>counter_zzH_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>840A5A1F585E989641C021016981ECFDA2F55B70</ManifestCertificateThumbprint>

@@ -30,6 +30,7 @@ Partial Class appearance
         Me.cbSwitchDeathMode = New System.Windows.Forms.CheckBox()
         Me.cbAnimalCrossing = New System.Windows.Forms.CheckBox()
         Me.cbAnimalCrossingDark = New System.Windows.Forms.CheckBox()
+        Me.btnCustomImage = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnChangeForeground
@@ -88,7 +89,7 @@ Partial Class appearance
         Me.cbSwitchDeathMode.AutoSize = True
         Me.cbSwitchDeathMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbSwitchDeathMode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cbSwitchDeathMode.Location = New System.Drawing.Point(23, 109)
+        Me.cbSwitchDeathMode.Location = New System.Drawing.Point(23, 137)
         Me.cbSwitchDeathMode.Name = "cbSwitchDeathMode"
         Me.cbSwitchDeathMode.Size = New System.Drawing.Size(155, 20)
         Me.cbSwitchDeathMode.TabIndex = 3
@@ -100,7 +101,7 @@ Partial Class appearance
         Me.cbAnimalCrossing.AutoSize = True
         Me.cbAnimalCrossing.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbAnimalCrossing.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.cbAnimalCrossing.Location = New System.Drawing.Point(21, 135)
+        Me.cbAnimalCrossing.Location = New System.Drawing.Point(21, 163)
         Me.cbAnimalCrossing.Name = "cbAnimalCrossing"
         Me.cbAnimalCrossing.Size = New System.Drawing.Size(161, 20)
         Me.cbAnimalCrossing.TabIndex = 4
@@ -112,19 +113,37 @@ Partial Class appearance
         Me.cbAnimalCrossingDark.AutoSize = True
         Me.cbAnimalCrossingDark.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbAnimalCrossingDark.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.cbAnimalCrossingDark.Location = New System.Drawing.Point(20, 158)
+        Me.cbAnimalCrossingDark.Location = New System.Drawing.Point(20, 186)
         Me.cbAnimalCrossingDark.Name = "cbAnimalCrossingDark"
         Me.cbAnimalCrossingDark.Size = New System.Drawing.Size(162, 20)
         Me.cbAnimalCrossingDark.TabIndex = 5
         Me.cbAnimalCrossingDark.Text = "Animal Counting (Dark)"
         Me.cbAnimalCrossingDark.UseVisualStyleBackColor = True
         '
+        'btnCustomImage
+        '
+        Me.btnCustomImage.BackColor = Global.Generic_Counter.My.MySettings.Default.backcolor
+        Me.btnCustomImage.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.Generic_Counter.My.MySettings.Default, "forecolor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.btnCustomImage.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Global.Generic_Counter.My.MySettings.Default, "backcolor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.btnCustomImage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnCustomImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnCustomImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCustomImage.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCustomImage.ForeColor = Global.Generic_Counter.My.MySettings.Default.forecolor
+        Me.btnCustomImage.Location = New System.Drawing.Point(23, 108)
+        Me.btnCustomImage.Name = "btnCustomImage"
+        Me.btnCustomImage.Size = New System.Drawing.Size(149, 26)
+        Me.btnCustomImage.TabIndex = 6
+        Me.btnCustomImage.Text = "Set Custom Image"
+        Me.btnCustomImage.UseVisualStyleBackColor = False
+        '
         'appearance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = Global.Generic_Counter.My.MySettings.Default.backcolor
-        Me.ClientSize = New System.Drawing.Size(194, 190)
+        Me.ClientSize = New System.Drawing.Size(194, 216)
+        Me.Controls.Add(Me.btnCustomImage)
         Me.Controls.Add(Me.cbAnimalCrossingDark)
         Me.Controls.Add(Me.cbAnimalCrossing)
         Me.Controls.Add(Me.cbSwitchDeathMode)
@@ -152,4 +171,5 @@ Partial Class appearance
     Friend WithEvents cbSwitchDeathMode As CheckBox
     Friend WithEvents cbAnimalCrossing As CheckBox
     Friend WithEvents cbAnimalCrossingDark As CheckBox
+    Friend WithEvents btnCustomImage As Button
 End Class
